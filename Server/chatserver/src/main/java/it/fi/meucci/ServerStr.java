@@ -4,13 +4,11 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import javax.swing.event.SwingPropertyChangeSupport;
+public class ServerStr extends Thread {
 
-public class ServerStr {
-
-    ServerSocket server = null;
-    Socket client = null;
-    String stringaRicevuta = null;
+    ServerSocket server      = null;
+    Socket client            = null;
+    String stringaRicevuta   = null;
     String stringaModificata = null;
     BufferedReader inDalClient;
     DataOutputStream outVersoIlClient;
@@ -62,7 +60,7 @@ public class ServerStr {
             stringaRicevuta = inDalClient.readLine();
             System.out.println("stringa arrivata");
             stringaModificata = stringaRicevuta.toUpperCase();
-
+            System.out.println("elaboro...");
             outVersoIlClient.writeBytes(stringaModificata + "\n");
             System.out.println("stringa modificata e inviata");
     
